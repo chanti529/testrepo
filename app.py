@@ -24,7 +24,12 @@ def index():
             <input type="submit" value="Submit">
         </form>
     '''
-
+@app.route("/goodbye", methods=["GET"])
+def index():
+        return f"""
+            <h1>Goodbye, {escape(name)} from {escape(city)}!</h1>
+            <p><a href="/">Go back</a></p>
+        """
 if __name__ == "__main__":
     import os
     app.run(debug=os.getenv('FLASK_DEBUG', 'False').lower() == 'true')
